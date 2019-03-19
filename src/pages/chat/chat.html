@@ -1,0 +1,105 @@
+<ion-header no-border class="login-header">
+  <ion-navbar>
+     <button ion-button menuToggle>
+    <ion-icon name="menu">
+    </ion-icon>
+  </button>
+<ion-title text-center> Chat </ion-title>
+</ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+    
+ 
+  <form [formGroup]="post" (ngSubmit)="posts(post.value)" *ngIf="(show)">
+
+    <div *ngIf="post.controls['posts'].invalid && (post.controls['posts'].dirty || post.controls['posts'].touched)" class="error">
+
+      <div *ngIf="post.controls['posts'].errors.required">Post is Required</div>
+
+    </div>
+
+    <ion-item>
+      <ion-textarea rows="3" (input)="adjustTextArea($event)" class="textArea" id="textarea" placeholder="Post your question Here!" name="posts" [formControl]="post.controls['posts']">
+ 
+      </ion-textarea>
+    </ion-item>
+
+    <div text-right style="margin-right:12px;">
+    <button ion-button class="postBtn" [disabled]="!post.valid" >Post</button>
+  </div> 
+  </form>
+
+  <br><br>
+  
+  <p class="errors" >{{error}} </p>
+
+
+  <ion-card *ngFor="let post of allposts">
+    
+    <ion-item>
+       <div item-left class="circle">{{post.ist}}</div>
+      <h2>{{post.names}}</h2>
+      <p style="font-size:12px;">{{post.date}}</p>
+    </ion-item>
+    <hr>
+    <ion-card-content>
+     {{post.post}}
+    </ion-card-content>
+
+    <ion-row style="    margin-top: -16px;
+    margin-bottom: 10px;">
+
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>{{post.total}} comments</div>
+        </button>
+      </ion-col>
+      <ion-col center text-center>
+    
+      </ion-col>
+    </ion-row>
+
+   
+    <ion-row>
+      <br>
+
+        <!-- comments part -->
+          <ion-card >
+
+          
+            <div *ngFor="let com of allcomments">
+              <ion-item *ngIf="com.postid==post.p_id" style="margin-bottom:-21px;" >
+                 <p ><b>{{com.names}}:</b></p>
+                 <div class="commentContent" >{{com.comments}}</div>
+                 <hr>
+              </ion-item>
+            </div>
+              <ion-card-content>
+                  <form [formGroup]="comment" (ngSubmit)="postComment(comment.value,post.p_id)" *ngIf="(show)">
+              
+                  <div class="input_icon">
+            <ion-input type="text" placeholder="comment here!" name="comments" [formControl]="comment.controls['comments']"></ion-input> 
+               <button ion-button class="mybtn" [disabled]="!comment.valid" ><ion-icon name="ios-send" item-right ></ion-icon></button>
+              </div>               
+                  </form>
+              
+                </ion-card-content>
+
+          </ion-card>
+
+          
+
+  </ion-row>
+
+  </ion-card>
+  <br>
+
+ 
+
+
+
+</ion-content>

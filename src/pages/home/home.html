@@ -1,0 +1,63 @@
+<ion-header no-border class="login-header">
+  <ion-navbar> 
+    <button ion-button menuToggle style="color: #000000;">
+    <ion-icon name="menu">
+    </ion-icon>
+  </button> </ion-navbar>
+</ion-header>
+<ion-content padding >
+  <div align="center">
+  <img class="logo" src="assets/imgs/ebook.png" />
+  </div>
+  
+
+  <h1 align="center" class="black">Entrar</h1>
+  <p id="para">Entra a tu cuenta</p>
+
+  <br><br>
+  
+  <p class="error" *ngIf="Error">{{error}}</p>
+
+      <div padding>
+          <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)" >
+
+            
+    <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)" class="error">
+
+                  <div *ngIf="loginForm.controls['email'].errors.required">Email is Required</div>
+                  <div *ngIf="loginForm.controls['email'].errors.email">Invalid Email</div>
+                </div>
+
+          <ion-item style="  border:1px solid #A9A9A9;">
+                <ion-icon item-start name="mail"></ion-icon>
+              <ion-input  id="email" placeholder="Correo electrónico" name="email" type="email" [formControl]="loginForm.controls['email']" ></ion-input>
+          </ion-item>
+
+          <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="error">
+
+              <div *ngIf="loginForm.controls['password'].errors.required">Password is Required</div>
+        
+            </div>
+
+          <ion-item style="  border:1px solid #A9A9A9;">
+                <ion-icon item-start name="lock"></ion-icon>
+              <ion-input  id="password" placeholder="Contraseña" name="password" type="password" [formControl]="loginForm.controls['password']" ></ion-input>
+          </ion-item>
+
+         
+
+            <br>
+          <button type="submit" ion-button block  medium  class="login-button">Entrar</button>
+        </form>
+      </div>
+ 
+
+ 
+</ion-content>
+<ion-footer>
+    <ion-toolbar class="footer">
+        <div>
+            <span (click)="SignUp()" >No tienes una cuenta? <strong>Abre una cuenta aquí</strong>.</span>
+        </div>
+    </ion-toolbar>
+  </ion-footer>

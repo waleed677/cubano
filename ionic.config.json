@@ -1,0 +1,7 @@
+{
+  "name": "cubano",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

@@ -1,0 +1,126 @@
+page-home {
+        .container{
+            width:300px;
+        }
+        .swiper-container-horizontal > .swiper-pagination-bullets{
+            bottom: 0px;
+        }
+
+        .swiper-pagination-bullet-active{
+            background: #4EB8CE;
+        }
+        
+        .black{
+            margin-bottom: -10px;
+            font-weight: 600;
+            font-size: 36px;
+        }
+
+       
+
+        #para{
+            text-align: center;
+            color: #666666;
+        }
+
+        .content-md hr{
+            background: #9EA1AA;
+            width: 50%;
+            margin-top: 20px;
+        }
+
+         // Footer
+      ion-footer {
+        height: 47px;
+        background: #000000 !important;
+      }
+      .footer {
+        text-align: center;
+        //background: rgba(255, 255, 255, .06);
+        min-height: 47px;
+        background: #000000 !important;
+      }
+      
+   
+    
+      
+  
+      .titlewa{
+        color:#ffffff !important;
+      }
+      // Input items
+      ion-item {
+        border-radius: 23px !important;
+        padding-left: 10px !important;
+        margin-bottom: 15px !important;
+        margin-bottom: 10px;
+        color: #000000 !important;
+        //background-color:#007dd9 !important;
+        background: transparent;
+        font-size: 0.9em;
+        border: 0px;
+         
+        
+        
+      }
+
+      .input-cover{
+        //border-bottom: 1px solid #fff;
+      
+      }
+       ::-webkit-input-placeholder {
+        color: #000000 !important;
+       
+      }
+      .item-inner {
+        border-bottom: 0 !important;
+        box-shadow: none !important;
+        
+      }
+      // --
+      .login-button {
+        text-transform: none;
+        border-radius: 23px !important;
+        background: $main;
+      }
+      
+      .item-input ion-input, .item-input ion-textarea{
+        font-size: 14px;
+       
+      }
+      // HR with text in the middle effect
+      .strike {
+        display: block;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        margin-top: 20px;
+      }
+      .strike>span {
+        position: relative;
+        display: inline-block;
+        font-weight: bold;
+      }
+      .strike>span:before,
+      .strike>span:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 9999px;
+        height: 1px;
+        //background: $transparent-white;
+      }
+      .strike>span:before {
+        right: 100%;
+        margin-right: 15px;
+      }
+      .strike>span:after {
+        left: 100%;
+        margin-left: 15px;
+      }
+      .item-input-has-focus .input-cover,
+      .input-has-focus .input-cover {
+        border-bottom: 1px solid #fff;
+        display: block;
+      }
+}

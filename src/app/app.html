@@ -1,0 +1,71 @@
+<ion-menu [content]="content" type="overlay">
+    <div class="menu-toolbar" >
+            <ion-toolbar text-center>
+                <h2>Reflexiones del Pastor Punto Com</h2>
+                <p>Libros del Pastor Eduardo Gutierrez</p>
+                  </ion-toolbar>
+    </div>
+
+    <ion-content class="sidemenugrad">
+
+       <ion-list class="list-items">
+
+            <br><br>
+          <ion-item tappable menuClose (click)="homePage()"  >
+          <ion-icon name="home" item-left ></ion-icon>
+
+            Casa
+          </ion-item>
+
+          <ion-item tappable menuClose no-line (click)="chat()" >
+            <ion-icon name="chatboxes" item-left ></ion-icon>
+            Chat
+         </ion-item>
+
+          <ion-item tappable menuClose no-line (click)="login()" *ngIf="(!loggedIn) && (!hideIn)" >
+            <ion-icon name="lock" item-left ></ion-icon>
+
+Iniciar sesión
+         </ion-item>
+
+
+             <ion-item tappable menuClose no-line (click)="about()" >
+                <ion-icon name="information-circle" item-left ></ion-icon>
+                Sobre Nosotros
+             </ion-item>
+
+             <ion-item tappable menuClose no-line (click)="ofrendas()" >
+              <ion-icon name="paper-plane" item-left ></ion-icon>
+              Ofrendas
+           </ion-item>
+
+           <ion-item tappable menuClose no-line (click)="mas()" >
+              <ion-icon name="more" item-left ></ion-icon>
+              Mas Opciones
+           </ion-item>
+
+           <ion-item tappable menuClose no-line (click)="contactarnos()" >
+            <ion-icon name="phone-portrait" item-left ></ion-icon>
+            Contactarnos
+         </ion-item>
+
+             <hr>
+
+                <ion-item tappable menuClose (click)="logout()"  *ngIf="loggedIn">
+                        <ion-icon name="exit" item-left></ion-icon>
+
+                cerrar sesión
+                    </ion-item>
+
+
+       </ion-list>
+       <h5 class="footer-icons" style="font-size: 14px;
+       margin-top: 50px;">
+        <!-- <a style="text-decoration: none;" href="http://www.reflexionesdelpastor.com/">Has click Aquí para acceder a los Libros</a> -->
+
+       </h5>
+       <br showWhen="ios">
+    </ion-content>
+ </ion-menu>
+ <ion-nav [root]="rootPage" #content swipeBackEnabled="false">
+ </ion-nav>

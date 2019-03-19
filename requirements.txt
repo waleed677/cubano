@@ -1,0 +1,35 @@
+https://104.168.171.90:2083
+User:cristo2
+password: yW6oLK(NeG0x
+
+Please install in public_html/reflexionesdelpastor.com/app
+
+I mean the url of the admin area must be www.reflexionesdelpastor.com/app
+
+
+
+Please add a new feature in the wall, Add the option to post as public or as "debate". If the post is public all logged users can reply but if the owner of the post set the post as "debate" then only the user invited by him can reply (all other users can read the post and read the replies but they cannot reply in the post marked as debate). When the user will publish a post the app will ask to set the post as public or as debate. If the user set the post as public then the post will work as we already agreed. But if the user set the post as debate then the app will ask for the email address of the person he want to invite so he need to know the email address of the account of the user he want to invite (I mean he need to ask for example by a phone call the email address of the user he want to invite). When the user owner of the email is logged in the app then he can reply the post. IN this case only the owner of the post and the user invited by the owner can reply in the post. You can add 50.00 to the project for this modification. 
+
+The wall will include two kind of posts: 
+
+Public: All logged users can replies and red and post and replies. All users without login can read the post and replies but they cannot reply. 
+
+Debate: Only the owner of the post and the person invited by him (only one person could be invited) can reply to the post. All others users logged and without login can read the post and replies. Please confirm.
+
+
+new requirements
+1. Please I want the order of the post with in descending order , I mean new post on the top
+
+2. in debate I want the user can invite to other users to debate in the post, you can find the way for example with a password. For example:
+Add a button below the debate post named "invite to debate" but in spanish "invitar a debatir" when the author of the debate click on the button the app will display a form to enter a password, the user will set any password then he will give by other way like facebook or whatsapp the password to the other user. Add other button below the debate name "accept the debate" but in spanish "aceptar el debate" when a user click on this button the app will display a form to enter the password, if the password is correct then then user can start to post on the debate. Make sure only one user can join the debate, I mean if a user use the password then any other user can use the same password. If the owner want to add other user then he can create other password.
+My only one interest is that tow users can comment in the debate posts
+
+Also remember I want to moderate the posts and debate:
+
+Me
+Aug 30, 1:36 AM
+
+Add a level of user named moderator, If I give this level to a user then he can delete post/replies but only me can ban and unban users to avoid the needs of to give access to moderators to the dashboard. This level does not affect in anyway the access to the books, this include only the permission to moderate the wall.
+
+
+Please add the option to organize the posts for example if some one want to see only the debates at the top then he can select organize by debate and the app will show all debates at the top always in descending order, you can add 20.00 for this modification.

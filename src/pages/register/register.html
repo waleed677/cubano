@@ -1,0 +1,71 @@
+<ion-header no-border class="login-header">
+    <ion-navbar> 
+      <button ion-button menuToggle style="color: #000000;">
+      <ion-icon name="menu">
+      </ion-icon>
+    </button> </ion-navbar>
+  </ion-header>
+
+  <ion-content padding>
+      <div align="center">
+      <img class="logo" src="assets/imgs/ebook.png" />
+      </div>
+      
+    
+      <h1 align="center" class="black">
+        Registro</h1>
+      <p id="para">Crea una cuenta nueva</p>
+    
+      <br><br>
+    
+          <div padding>
+
+    <form [formGroup]="registeration" (ngSubmit)="registerations(registeration.value)" >
+
+      <div *ngIf="registeration.controls['name'].invalid && (registeration.controls['name'].dirty || registeration.controls['name'].touched)" class="error">
+
+        <div *ngIf="registeration.controls['name'].errors.required">Name is Required</div>
+        <div *ngIf="registeration.controls['name'].errors.pattern">Name is invalid</div>
+
+      </div>
+
+<ion-item style="  border:1px solid #A9A9A9;">
+                  <ion-icon item-start name="person"></ion-icon>
+                <ion-input #name  id="name" placeholder="Tu nombre" name="name" type="text" [formControl]="registeration.controls['name']"></ion-input>
+            </ion-item>
+
+      
+            <div *ngIf="registeration.controls['email'].invalid && (registeration.controls['email'].dirty || registeration.controls['email'].touched)" class="error">
+
+                <div *ngIf="registeration.controls['email'].errors.required">Email is Required</div>
+                <div *ngIf="registeration.controls['email'].errors.email">Invalid Email</div>
+        
+              </div>
+    
+              <ion-item style="  border:1px solid #A9A9A9;">
+                    <ion-icon item-start name="mail"></ion-icon>
+                  <ion-input #email id="email" placeholder="Correo Electronico" name="email" type="email" [formControl]="registeration.controls['email']" (focusout)="checkEmail(email.value)"></ion-input>
+              </ion-item>
+
+              <div *ngIf="registeration.controls['password'].invalid && (registeration.controls['password'].dirty || registeration.controls['password'].touched)" class="error">
+
+                  <div *ngIf="registeration.controls['password'].errors.required">Password is Required</div>
+            
+                </div>
+
+              <ion-item style="  border:1px solid #A9A9A9;">
+                    <ion-icon item-start name="lock"></ion-icon>
+                  <ion-input #password [formControl]="registeration.controls['password']"  id="password" placeholder="Contraseña" name="password" type="password"></ion-input>
+              </ion-item>
+    
+             
+    
+                <br>
+              <button ion-button block type="submit"  medium  class="login-button" [disabled]="!registeration.valid" >Crear una cuenta</button>
+            </form>
+          </div>
+    
+    
+     
+    </ion-content>
+  

@@ -1,0 +1,18 @@
+page-main {
+    .card-header-md,.card-header-ios {
+        font-size: 1.6rem;
+        color: #222;
+        padding: 16px;
+        font-weight: 700;
+        color: red;
+    }
+    .errors{
+        color: red;
+        font-size: 16px;
+        text-transform: initial;
+        text-align: center;
+    }
+    ion-card-header{
+        white-space: normal;
+    }
+}

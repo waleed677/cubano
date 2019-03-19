@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "370621986501",
+    "firebase_url": "https://reflexionesdelpastorpuntocom.firebaseio.com",
+    "project_id": "reflexionesdelpastorpuntocom",
+    "storage_bucket": "reflexionesdelpastorpuntocom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370621986501:android:33d5389cd49f4f15",
+        "android_client_info": {
+          "package_name": "com.cubano"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370621986501-uu2um53sueo45noj2hgnc6838cine8c8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cubano",
+            "certificate_hash": "e6408cbe9e4b0702c4d800965df79534aa1b14c7"
+          }
+        },
+        {
+          "client_id": "370621986501-vqvq5m9ohopj3tg5oemviqa1687qou5r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZQoSxQo4hrxIzb4YUw5K1uQkvVluwk3E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370621986501-vqvq5m9ohopj3tg5oemviqa1687qou5r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

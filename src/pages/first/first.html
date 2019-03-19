@@ -1,0 +1,58 @@
+<ion-header no-border class="login-header">
+  <ion-navbar>
+     <button ion-button menuToggle>
+    <ion-icon name="menu">
+    </ion-icon>
+  </button>
+<ion-title text-center> Libros </ion-title>
+</ion-navbar>
+</ion-header>
+
+
+
+<ion-content>
+
+
+  <div align="center" >
+    <br>
+    <p style="font-size:16px;">Mas opciones en el menú de la izquierda</p>
+    <br>
+    <button center ion-button small color="primary">Libros Fijados</button>
+  </div>
+
+  <p class="errors" >{{Toperror}} </p>
+  <ion-card *ngFor="let ebookss of topEbooks">
+      <ion-card-header>
+      {{ebookss.title}}
+      </ion-card-header>
+      <ion-card-content>
+       {{ebookss.description}}
+      
+       <div align="center" >
+          <br>
+        <button center ion-button small color="danger" (click)="openPdf(ebookss.pdf)">Leer Ebook</button>
+      </div>
+      </ion-card-content>
+      
+    </ion-card>
+    
+    <hr style="background: #000;">
+    
+
+<p class="errors" >{{error}} </p>
+  <ion-card *ngFor="let ebook of ebooks">
+      <ion-card-header>
+      {{ebook.title}}
+      </ion-card-header>
+      <ion-card-content>
+       {{ebook.description}}
+      
+       <div align="center" >
+          <br>
+        <button center ion-button small color="danger" (click)="openPdf(ebook.pdf)">Leer Ebook</button>
+      </div>
+      </ion-card-content>
+    </ion-card>
+
+
+</ion-content>

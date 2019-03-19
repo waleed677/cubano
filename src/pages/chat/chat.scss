@@ -1,0 +1,97 @@
+page-chat {
+    .textArea{
+    
+        border: 1px solid #DCDCDC;
+        margin-left: 0px;
+        margin-right: 5px;
+        border-radius: 3px; 
+        font-size: 13px;
+        padding: 5px;
+        width: calc(100% - 8px - 8px);
+        font-family: 'Proxima Nova', Georgia, sans-serif !important;
+        font-weight: 400;
+        margin-top: 20px;
+    }
+
+ 
+.circle{
+    border-radius: 50%;
+    background-color: #dedede;
+    height: 38px;
+    width: 40px;
+    font-size: 26px;
+    text-align: center;
+    margin-top: 10px;
+    text-transform: uppercase;
+    
+}
+
+.input_icon{
+    display: flex;
+}
+
+.mybtn{
+    border-radius:20px;
+    height: 2.8rem;
+    width: 2.2rem;
+    
+}
+
+div .commentContent{
+    word-wrap: break-word;
+    white-space: normal;
+    font-size: 12px;
+}
+
+    ion-segment {
+        padding: 0px 12px;
+        opacity: 0.7;
+        position: relative;
+        top: -50px;
+    }
+
+    ion-segment-button {
+        border-color: #000000 !important;
+        color: #fff !important;
+    }
+
+    ion-card {
+        //background-color: #fff;
+        width: 100%;
+        margin: 0;
+        margin-bottom: 25px;
+        position: relative;
+        top: -30px;
+    }
+
+    ion-card:last-of-type {
+        margin-bottom: 0 !important;
+    }
+
+    ion-item {
+        background-color: #fff;
+    }
+
+ 
+
+  .platform-mobile textarea.text-input{
+    height: auto;
+  }
+
+  
+  .item-md.item-block .item-inner,
+  .item-md.item-input.input-has-focus .item-inner,
+  .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner,
+  .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner,
+  .list-md .item-input.input-has-focus:last-child,
+  .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child,
+  .list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child {
+      border-bottom: none;
+      box-shadow: none;
+  }
+  .list-md .item-input.input-has-focus:last-child .item-inner,
+  .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child .item-inner,
+  .list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child .item-inner {
+      box-shadow: none; 
+  }
+}
