@@ -73,7 +73,7 @@
           
             <div *ngFor="let com of allcomments">
               <ion-item *ngIf="com.postid==post.p_id" style="margin-bottom:-21px;" >
-                 <p ><b>{{com.names}}:</b></p>
+                 <p ><b>{{com.name}}:</b></p>
                  <div class="commentContent" >{{com.comments}}</div>
                  <hr>
               </ion-item>

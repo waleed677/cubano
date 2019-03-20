@@ -76,7 +76,7 @@ export class ChatPage {
 
     //console.log("LoggedIn chat.html:" + this.loggedIn);
     this.showPost();
-    //this.showcomments();
+    this.showcomments();
   }
 
   protected adjustTextArea(event: any): void {
