@@ -79,6 +79,25 @@ div .commentContent{
         text-transform: initial;
         text-align: center;
     }
+    .select-md{
+        padding:0px 0px 0px 0px;
+    }
+    .select-md .select-icon{
+
+    width: 0px;
+    height: 0px;
+    }
+
+    .filter{
+        border-bottom: 1px solid #dedede;
+        margin-top: -25px;
+        
+    }
+    .filter .totalpost{
+        font-size: 12px;
+        padding: 5px;
+        font-weight: 700;
+    }
   .platform-mobile textarea.text-input{
     height: auto;
   }

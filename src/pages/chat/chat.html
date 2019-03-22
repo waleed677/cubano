@@ -34,9 +34,24 @@
 
   <br><br>
   
+  
+  <ion-row class="filter">
+    <ion-col col-10><span class="totalpost">Total Posts 54</span></ion-col>
+    <ion-col col-2>
+        
+            <ion-icon name="funnel"></ion-icon>
+            <ion-select>
+                <ion-option value="nes">Debate</ion-option>
+                <ion-option value="n64">Public</ion-option>
+                <ion-option value="ps">Default</ion-option>
+            </ion-select>
+  
+    
+    </ion-col>
+  </ion-row>
+
+  <br><br>
   <p class="errors" >{{error}} </p>
-
-
   <ion-card *ngFor="let post of allposts">
     
     <ion-item>
