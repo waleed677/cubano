@@ -36,14 +36,14 @@
   
   
   <ion-row class="filter">
-    <ion-col col-10><span class="totalpost">Total Posts 54</span></ion-col>
+    <ion-col col-10><span class="totalpost">Total Posts {{totalpost}}</span></ion-col>
     <ion-col col-2>
         
             <ion-icon name="funnel"></ion-icon>
-            <ion-select>
-                <ion-option value="nes">Debate</ion-option>
-                <ion-option value="n64">Public</ion-option>
-                <ion-option value="ps">Default</ion-option>
+            <ion-select  name="periodSelected" (ionChange)="onChange($event)">
+                <ion-option value="Debate" >Debate</ion-option>
+                <ion-option value="Public">Public</ion-option>
+                <ion-option value="Default">Default</ion-option>
             </ion-select>
   
     
