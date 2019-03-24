@@ -38,7 +38,6 @@ export class ChatPage {
   testRadioResult: any;
   category: string = 'gear';
   comment;
-  totalpost;
   constructor(public navCtrl: NavController, public navParams: NavParams, private alert: AlertController, private loading: LoadingController, fb: FormBuilder, private http: Http, private events: Events) {
 
 
@@ -241,8 +240,6 @@ export class ChatPage {
       subscribe(data => {
         if (data.error == undefined) {
           this.success = data.success;
-          this.totalpost = data.total;
-
           if (this.success) {
             this.allposts = data.data;
             
@@ -324,24 +321,6 @@ export class ChatPage {
 
 
   }
-
-  onChange($event){
-   
-    let filter = $event;
-    console.log(filter);
-    this.url="http://www.reflexionesdelpastor.com/appadmin/postFilter.php?filter="+filter;
-    this.http.get(this.url).
-    timeout(6000).
-    map(res=>res.json()).
-    subscribe(data=>{
-      if(data.error == undefined){
-        this.success = data.success;
-        if(this.success){
-          this.allposts=data.data;
-        }
-      }
-    })
-    }
 
 }
 
