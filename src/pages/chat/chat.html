@@ -43,7 +43,7 @@
             <ion-select  name="periodSelected" (ionChange)="onChange($event)">
                 <ion-option value="Debate" >Debate</ion-option>
                 <ion-option value="Public">Public</ion-option>
-                <ion-option value="Default">Default</ion-option>
+               
             </ion-select>
   
     
@@ -105,8 +105,10 @@
                 </ion-card-content>
 
           </ion-card>
-
-          
+          {{post.options}}
+          <div text-right  *ngIf="post.options=='Debate' && post.user_id == (id) ">
+            <button ion-button small color="danger" (click)="openForm(post.p_id,post.posts)">invitar a debatir</button>
+          </div>
 
   </ion-row>
 

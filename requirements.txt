@@ -18,7 +18,7 @@ Debate: Only the owner of the post and the person invited by him (only one perso
 
 
 new requirements
-1. Please I want the order of the post with in descending order , I mean new post on the top
+1. Please I want the order of the post with in descending order , I mean new post on the top ( done)..............
 
 2. in debate I want the user can invite to other users to debate in the post, you can find the way for example with a password. For example:
 Add a button below the debate post named "invite to debate" but in spanish "invitar a debatir" when the author of the debate click on the button the app will display a form to enter a password, the user will set any password then he will give by other way like facebook or whatsapp the password to the other user. Add other button below the debate name "accept the debate" but in spanish "aceptar el debate" when a user click on this button the app will display a form to enter the password, if the password is correct then then user can start to post on the debate. Make sure only one user can join the debate, I mean if a user use the password then any other user can use the same password. If the owner want to add other user then he can create other password.
@@ -32,4 +32,4 @@ Aug 30, 1:36 AM
 Add a level of user named moderator, If I give this level to a user then he can delete post/replies but only me can ban and unban users to avoid the needs of to give access to moderators to the dashboard. This level does not affect in anyway the access to the books, this include only the permission to moderate the wall.
 
 
-Please add the option to organize the posts for example if some one want to see only the debates at the top then he can select organize by debate and the app will show all debates at the top always in descending order, you can add 20.00 for this modification.
+Please add the option to organize the posts for example if some one want to see only the debates at the top then he can select organize by debate and the app will show all debates at the top always in descending order, you can add 20.00 for this modification.    (done)

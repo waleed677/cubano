@@ -38,7 +38,10 @@ export class ChatPage {
   testRadioResult: any;
   category: string = 'gear';
   comment;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alert: AlertController, private loading: LoadingController, fb: FormBuilder, private http: Http, private events: Events) {
+  totalpost;
+  filter;
+  showDebate:boolean= false;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController, private loading: LoadingController, fb: FormBuilder, private http: Http, private events: Events) {
 
 
     this.comment = FormGroup;
@@ -131,7 +134,7 @@ export class ChatPage {
         error => {
           console.log(error);
           this.load.dismiss();
-          let alert = this.alert.create({
+          let alert = this.alertController.create({
             title: 'Oops!',
             subTitle: 'There’s no network connection. Make sure you’re connected to a Wi-fi or mobile network and try again.',
             buttons: ['Okay']
@@ -182,7 +185,7 @@ export class ChatPage {
       error => {
         console.log(error);
         this.load.dismiss();
-        let alert = this.alert.create({
+        let alert = this.alerts.create({
           title: 'Oops!',
           subTitle: 'There’s no network connection. Make sure you’re connected to a Wi-fi or mobile network and try again.',
           buttons: ['Okay']
@@ -199,7 +202,7 @@ export class ChatPage {
 
   protected doRadio(posttext, userid) {
 
-    this.alerts = this.alert.create();
+    this.alerts = this.alerts.create();
     this.alerts.setTitle('Select Type');
 
     this.alerts.addInput({
@@ -240,19 +243,10 @@ export class ChatPage {
       subscribe(data => {
         if (data.error == undefined) {
           this.success = data.success;
+          this.totalpost = data.total;
           if (this.success) {
             this.allposts = data.data;
             
-
-            //this.splitName = name.charAt(0);
-
-            // let char = this.splitName.split(1);
-            // console.log("the char is:",char);
-
-            //var str = "waleed"; 
-            //var splitted = str.charAt(0); 
-
-
           }
           else {
             this.error = "There is no Posts avaiable";
@@ -263,7 +257,7 @@ export class ChatPage {
         error => {
           console.log(error);
           this.load.dismiss();
-          let alert = this.alert.create({
+          let alert = this.alertController.create({
             title: 'Oops!',
             subTitle: 'There’s no network connection. Make sure you’re connected to a Wi-fi or mobile network and try again.',
             buttons: ['Okay']
@@ -276,6 +270,99 @@ export class ChatPage {
   }
 
 
+  protected onChange($event) {
+    this.filter = $event;
+    console.log(this.filter);
+    this.url = "http://www.reflexionesdelpastor.com/appadmin/postFilter.php?filter="+this.filter;
+    this.http.get(this.url).
+      timeout(6000).
+      map(res => res.json()).
+      subscribe(data => {
+        if (data.error == undefined) {
+          if (this.success) {
+            this.allposts = data.data;
+          }
+          else {
+            this.error = "There is no Posts avaiable";
+          }
+        }
+
+      },
+        error => {
+          console.log(error);
+          this.load.dismiss();
+          let alert = this.alertController.create({
+            title: 'Oops!',
+            subTitle: 'There’s no network connection. Make sure you’re connected to a Wi-fi or mobile network and try again.',
+            buttons: ['Okay']
+          });
+          alert.present();
+        }
+      )
+
+
+  }
+
+  async openForm(postid,content){
+  
+    const alart = await this.alertController.create({
+      title: 'Invite To Debate',
+      inputs: [
+        {
+          name: 'email',
+          type: 'email',
+          label : 'Email',
+          placeholder: 'Email'
+        },
+        {
+          name: 'password', 
+          type: 'password',
+          label : 'Password',
+          placeholder: 'password'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Submit',
+          handler: data => {
+              console.log("Email:",data.email);
+              console.log("Password:",data.password);
+              console.log("Post ID:",postid);
+              this.inviteForDebate(data.email,data.password,postid,content);
+            console.log('Confirm Ok');
+          }
+        }
+      ]
+    });
+    await alart.present();  
+  }
+
+  protected inviteForDebate(email:string , password: string,pid:any,content:any){
+    this.url = "http://www.reflexionesdelpastor.com/appadmin/inviteDebate.php?email="+email+"&password="+password+"&postid="+pid+"&content="+content;
+    this.http.get(this.url).timeout(6000).
+    map(res => res.json()).
+    subscribe(data=>{
+        if(data.error == undefined){
+          this.success = data.success;
+          if(this.success){
+            let alert = this.alertController.create({
+              title: 'Congratulations',
+              subTitle: 'Invitation has been sent to user to take part in debate!',
+              buttons: ['Okay']
+            });
+            alert.present();
+          }
+        }
+
+    })
+  }
   protected showcomments() {
     this.url = "http://www.reflexionesdelpastor.com/appadmin/getComments.php";
     this.http.get(this.url).
@@ -310,7 +397,7 @@ export class ChatPage {
         error => {
           console.log(error);
           this.load.dismiss();
-          let alert = this.alert.create({
+          let alert = this.alertController.create({
             title: 'Oops!',
             subTitle: 'There’s no network connection. Make sure you’re connected to a Wi-fi or mobile network and try again.',
             buttons: ['Okay']
