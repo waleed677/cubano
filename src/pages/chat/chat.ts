@@ -41,6 +41,7 @@ export class ChatPage {
   totalpost;
   filter;
   showDebate:boolean= false;
+  debateComment:boolean = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController, private loading: LoadingController, fb: FormBuilder, private http: Http, private events: Events) {
 
 
@@ -306,7 +307,7 @@ export class ChatPage {
   async openForm(postid,content){
   
     const alart = await this.alertController.create({
-      title: 'Invite To Debate',
+      title: 'Invitar A Debatir',
       inputs: [
         {
           name: 'email',
@@ -342,6 +343,70 @@ export class ChatPage {
       ]
     });
     await alart.present();  
+  }
+
+
+  async openPasswordForm(postid){
+    const alart = await this.alertController.create({
+      title: 'Aceptar El Debate',
+      inputs: [
+        {
+          name: 'password', 
+          type: 'password',
+          label : 'Password',
+          placeholder: 'password'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Submit',
+          handler: data => {
+              console.log("Password:",data.password);
+              console.log("Post ID:",postid);
+              this.matachPassword(data.password,postid);
+            console.log('Confirm Ok');
+          }
+        }
+      ]
+    });
+    await alart.present(); 
+  }
+
+  protected matachPassword(pass:any,pid:any){
+    this.url = "http://www.reflexionesdelpastor.com/appadmin/checkPassword.php?password="+pass+"&postid="+pid;
+    this.http.get(this.url).timeout(6000).
+    map(res => res.json()).
+    subscribe(data=>{
+        if(data.error == undefined){
+          this.success = data.success;
+          if(this.success){
+            this.debateComment = true;
+            console.log('DebateComment:',this.debateComment);
+            let alert = this.alertController.create({
+              title: 'Congratulations',
+              subTitle: 'Password Matched. You can take part in debate on this post',
+              buttons: ['Okay']
+            });
+            alert.present();
+          }else{
+            let alert = this.alertController.create({
+              title: "Warning",
+              subTitle: 'Password does not match' ,
+              buttons: ['Okay']
+            });
+            alert.present();
+          }
+        }
+
+    })
+
   }
 
   protected inviteForDebate(email:string , password: string,pid:any,content:any){

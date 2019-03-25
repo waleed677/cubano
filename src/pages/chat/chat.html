@@ -93,7 +93,7 @@
                  <hr>
               </ion-item>
             </div>
-              <ion-card-content>
+              <ion-card-content *ngIf="post.options!='Debate' && !(debateComment)">
                   <form [formGroup]="comment" (ngSubmit)="postComment(comment.value,post.p_id)" *ngIf="(show)">
               
                   <div class="input_icon">
@@ -105,12 +105,16 @@
                 </ion-card-content>
 
           </ion-card>
-          {{post.options}}
+          <!-- {{post.options}} -->
           <div text-right  *ngIf="post.options=='Debate' && post.user_id == (id) ">
             <button ion-button small color="danger" (click)="openForm(post.p_id,post.posts)">invitar a debatir</button>
           </div>
 
-  </ion-row>
+          <div text-right *ngIf="post.options=='Debate' && (show)">
+            <button style="background-color:#10dc60 " ion-button small color="success" (click)="openPasswordForm(post.p_id)">Aceptar El Debate</button>
+          </div>
+
+  </ion-row>  
 
   </ion-card>
   <br>

@@ -23,7 +23,7 @@ new requirements
 2. in debate I want the user can invite to other users to debate in the post, you can find the way for example with a password. For example:
 Add a button below the debate post named "invite to debate" but in spanish "invitar a debatir" when the author of the debate click on the button the app will display a form to enter a password, the user will set any password then he will give by other way like facebook or whatsapp the password to the other user. Add other button below the debate name "accept the debate" but in spanish "aceptar el debate" when a user click on this button the app will display a form to enter the password, if the password is correct then then user can start to post on the debate. Make sure only one user can join the debate, I mean if a user use the password then any other user can use the same password. If the owner want to add other user then he can create other password.
 My only one interest is that tow users can comment in the debate posts
-
+                                                                                                   
 Also remember I want to moderate the posts and debate:
 
 Me
