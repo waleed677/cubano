@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController,ToastController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { Http } from '@angular/http';
 import { Events } from 'ionic-angular';
 import 'rxjs/add/operator/map';
+import { jsonpFactory } from '@angular/http/src/http_module';
 /**
  * Generated class for the ChatPage page.
  *
@@ -43,7 +44,8 @@ export class ChatPage {
   showDebate:boolean= false;
   debateComment:boolean = false;
   postid:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController, private loading: LoadingController, fb: FormBuilder, private http: Http, private events: Events) {
+  userLevel;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController, private loading: LoadingController, fb: FormBuilder, private http: Http, private events: Events,public toastCtrl: ToastController) {
 
 
     this.comment = FormGroup;
@@ -65,7 +67,9 @@ export class ChatPage {
 
   ionViewDidLoad() {
     this.id = window.localStorage.getItem('userid');
+    this.userLevel = window.localStorage.getItem('userLevel');
     console.log('ID in ChatPage is:', this.id);
+    console.log('userLevel in ChatPage is:', this.userLevel);
     if (this.id == null) {
       this.loggedIn = false;
     } else {
@@ -82,6 +86,29 @@ export class ChatPage {
     //console.log("LoggedIn chat.html:" + this.loggedIn);
     this.showPost();
     this.showcomments();
+  }
+
+  protected deletePost(pid:any) {
+    console.log("post id for delete:",pid);
+    this.url = "http://www.reflexionesdelpastor.com/appadmin/deletePost.php?postid=" + pid;
+    console.log(this.url);
+   this.http.get(this.url). 
+    timeout(6000).
+    map(res => res.json()).
+    subscribe(data => {
+       if(data.error==undefined){
+         this.success = data.success;
+         if(this.success){
+           const toast = this.toastCtrl.create  ({
+            message: 'Post Deleted Successfully!',
+            duration: 3000,
+            position: 'bottom'
+           });
+           toast.present();
+           this.showPost();
+         }
+       }
+    })
   }
 
   protected adjustTextArea(event: any): void {
@@ -102,11 +129,6 @@ export class ChatPage {
   protected insertPosts(posttext, userid, option) {
 
     console.log('insertPosts');
-
-    // console.log('userid:',userid);
-    // console.log('posttext:',posttext);
-    // console.log('option:',option);
-
     this.load = this.loading.create({
       content: 'Loading....',
       spinner: 'crescent'
@@ -187,7 +209,7 @@ export class ChatPage {
       error => {
         console.log(error);
         this.load.dismiss();
-        let alert = this.alerts.create({
+        let alert = this.alertController.create({
           title: 'Oops!',
           subTitle: 'There’s no network connection. Make sure you’re connected to a Wi-fi or mobile network and try again.',
           buttons: ['Okay']
@@ -204,7 +226,7 @@ export class ChatPage {
 
   protected doRadio(posttext, userid) {
 
-    this.alerts = this.alerts.create();
+    this.alerts = this.alertController.create();
     this.alerts.setTitle('Select Type');
 
     this.alerts.addInput({

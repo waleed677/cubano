@@ -55,11 +55,13 @@
   <ion-card *ngFor="let post of allposts">
     
     <ion-item>
+        <div item-right *ngIf="(userLevel)=='Moderate' && post.user_id ==(id)" (click)="deletePost(post.p_id)"><ion-icon name="close" class="icircle" ></ion-icon></div>
        <div item-left class="circle">{{post.ist}}</div>
+       
       <h2>{{post.name}}</h2>
       <p style="font-size:12px;">{{post.date}}</p>
     </ion-item>
-    <hr>
+    <hr> 
     <ion-card-content>
      {{post.posts}}
     </ion-card-content>
@@ -87,7 +89,9 @@
 
           
             <div *ngFor="let com of allcomments">
+         
               <ion-item *ngIf="com.postid==post.p_id" style="margin-bottom:-21px;" >
+                  <div item-right *ngIf="(userLevel)=='Moderate' && post.user_id == (id)" ><ion-icon name="close" class="icircle" ></ion-icon></div>
                  <p ><b>{{com.name}}:</b></p>
                  <div class="commentContent" >{{com.comments}}</div>
                  <hr>

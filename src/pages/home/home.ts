@@ -72,6 +72,7 @@ export class HomePage {
 
               window.localStorage.setItem('name',data.data.name);
               window.localStorage.setItem('userid',data.data.id);
+              window.localStorage.setItem('userLevel',data.data.level);
               this.events.publish('id',data.data.id);
               this.navCtrl.setRoot('MainPage');
 
