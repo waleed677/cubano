@@ -42,6 +42,7 @@ export class ChatPage {
   filter;
   showDebate:boolean= false;
   debateComment:boolean = false;
+  postid:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController, private loading: LoadingController, fb: FormBuilder, private http: Http, private events: Events) {
 
 
@@ -388,6 +389,7 @@ export class ChatPage {
           this.success = data.success;
           if(this.success){
             this.debateComment = true;
+            this.postid = pid;
             console.log('DebateComment:',this.debateComment);
             let alert = this.alertController.create({
               title: 'Congratulations',
