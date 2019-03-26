@@ -89,9 +89,10 @@
 
           
             <div *ngFor="let com of allcomments">
-         
-              <ion-item *ngIf="com.postid==post.p_id" style="margin-bottom:-21px;" >
-                  <div item-right *ngIf="(userLevel)=='Moderate' && post.user_id == (id)" ><ion-icon name="close" class="icircle" ></ion-icon></div>
+            
+            <ion-item *ngIf="com.postid==post.p_id" style="margin-bottom:-21px;" >
+                <div item-right *ngIf="(userLevel)=='Moderate' && com.user_id == (id)" ><ion-icon name="close" class="icircle" ></ion-icon></div>
+
                  <p ><b>{{com.name}}:</b></p>
                  <div class="commentContent" >{{com.comments}}</div>
                  <hr>
