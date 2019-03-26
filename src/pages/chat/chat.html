@@ -93,7 +93,7 @@
                  <hr>
               </ion-item>
             </div>
-              <ion-card-content *ngIf="post.options!='Debate' && !(debateComment)">
+              <ion-card-content *ngIf="(post.options=='Debate' && (debateComment)) || (post.options =='Public' && (show))">
                   <form [formGroup]="comment" (ngSubmit)="postComment(comment.value,post.p_id)" *ngIf="(show)">
               
                   <div class="input_icon">
